@@ -1,9 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class WeightCollision : MonoBehaviour
 {
     public static int currentLives = 3;
+
+    public static int attemptCounter = 1;
+    public TextMeshProUGUI attemptText;
+
+    public LevelButton levelButton;
 
     public Sprite[] lifeSprites;
     private SpriteRenderer sr;
@@ -11,6 +17,9 @@ public class WeightCollision : MonoBehaviour
 
     void Start()
     {
+        GameObject textObj = GameObject.Find("Attempt Counter");
+        attemptText = textObj.GetComponent<TextMeshProUGUI>();
+        attemptText.text = "Attempts: " + attemptCounter.ToString();
         sr = GetComponent<SpriteRenderer>();
         UpdateSprite();
     }
@@ -21,12 +30,30 @@ public class WeightCollision : MonoBehaviour
         {
             LoseLife();
             UpdateSprite();
+            attemptText.text = "Attempts: " + attemptCounter.ToString();
+            // add a attemt counter
         }
 
         if (collision.gameObject.CompareTag("Finish"))
         {
-            isFinished = true;
-            // Mark level as completed and save time
+            if (collision.gameObject.CompareTag("Finish"))
+            {
+                isFinished = true;
+
+                string sceneName = SceneManager.GetActiveScene().name;
+                string levelNumStr = sceneName.Replace("Level ", "");
+
+                if (int.TryParse(levelNumStr, out int currentLevelNum))
+                {
+                    int nextLevel = currentLevelNum + 1;
+                    PlayerPrefs.SetInt("Level" + nextLevel + "Unlocked", 1);
+                    PlayerPrefs.Save();
+
+                    Debug.Log("Unlocked Level " + nextLevel);
+                }
+
+                SceneManager.LoadScene("LevelSelector");
+            }
         }
     }
 
@@ -39,6 +66,7 @@ public class WeightCollision : MonoBehaviour
         {
             Debug.Log("Resetting lives to 3");
             currentLives = 3;
+            attemptCounter++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

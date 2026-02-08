@@ -23,7 +23,6 @@ public class MouseAnchor : MonoBehaviour
             Vector2 mouseRay = cam.ScreenToWorldPoint(Input.mousePosition);
 
             Collider2D hitCollider = Physics2D.OverlapPoint(mouseRay);
-            Debug.Log("Hit collider");
 
             if (hitCollider != null && hitCollider.gameObject == gameObject)
             {
