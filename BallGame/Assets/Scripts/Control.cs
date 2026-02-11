@@ -17,26 +17,22 @@ public class MouseAnchor : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
-            Vector2 mouseRay = cam.ScreenToWorldPoint(Input.mousePosition);
-
-            Collider2D hitCollider = Physics2D.OverlapPoint(mouseRay);
+            Vector2 inputPos = GetWorldInputPosition();
+            Collider2D hitCollider = Physics2D.OverlapPoint(inputPos);
 
             if (hitCollider != null && hitCollider.gameObject == gameObject)
             {
                 isDragging = true;
                 isStarted = true;
-                Debug.Log("Dragging True");
-
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)))
         {
             isDragging = false;
-            rb.linearVelocity = Vector2.zero; 
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
@@ -44,12 +40,27 @@ public class MouseAnchor : MonoBehaviour
     {
         if (isDragging)
         {
-            Vector3 mousePos = Input.mousePosition;
-            float zDist = Mathf.Abs(cam.transform.position.z - transform.position.z);
-            mousePos.z = zDist > 0 ? zDist : 10f;
-
-            Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
+            Vector3 worldPos = GetWorldInputPosition();
             rb.MovePosition(worldPos);
         }
+    }
+
+    Vector3 GetWorldInputPosition()
+    {
+        Vector3 screenPos;
+
+        if (Input.touchCount > 0)
+        {
+            screenPos = Input.GetTouch(0).position;
+        }
+        else
+        {
+            screenPos = Input.mousePosition;
+        }
+
+        float zDist = Mathf.Abs(cam.transform.position.z - transform.position.z);
+        screenPos.z = zDist > 0 ? zDist : 10f;
+
+        return cam.ScreenToWorldPoint(screenPos);
     }
 }
