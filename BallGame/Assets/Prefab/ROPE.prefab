@@ -480,7 +480,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.99}
-  m_ConnectedAnchor: {x: 0, y: -0.9662594}
+  m_ConnectedAnchor: {x: 0, y: -0.96625865}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -626,7 +626,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.99}
-  m_ConnectedAnchor: {x: 0, y: -0.97738266}
+  m_ConnectedAnchor: {x: 0, y: -0.97738343}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 3836192684174136376}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1394,7 +1394,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.5}
-  m_ConnectedAnchor: {x: 0.058647905, y: -0.93629616}
+  m_ConnectedAnchor: {x: 0.058648586, y: -0.93629616}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -1417,7 +1417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   attemptText: {fileID: 664922442519922011, guid: df16abcce2f9326459e22e00ec1301ff, type: 3}
-  levelButton: {fileID: 0}
   lifeSprites:
   - {fileID: -3643520803652780564, guid: 0f3801cd613d1e24aaca763b68d102ad, type: 3}
   - {fileID: -3643520803652780564, guid: 0f3801cd613d1e24aaca763b68d102ad, type: 3}
@@ -1560,7 +1559,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.99}
-  m_ConnectedAnchor: {x: 0, y: -0.53978384}
+  m_ConnectedAnchor: {x: 0, y: -0.53978395}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:

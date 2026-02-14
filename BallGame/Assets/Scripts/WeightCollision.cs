@@ -9,17 +9,12 @@ public class WeightCollision : MonoBehaviour
     public static int attemptCounter = 1;
     public TextMeshProUGUI attemptText;
 
-    public LevelButton levelButton;
-
     public Sprite[] lifeSprites;
     private SpriteRenderer sr;
     public bool isFinished = false;
 
     void Start()
     {
-        GameObject textObj = GameObject.Find("Attempt Counter");
-        attemptText = textObj.GetComponent<TextMeshProUGUI>();
-        attemptText.text = "Attempts: " + attemptCounter.ToString();
         sr = GetComponent<SpriteRenderer>();
         UpdateSprite();
     }
@@ -30,8 +25,6 @@ public class WeightCollision : MonoBehaviour
         {
             LoseLife();
             UpdateSprite();
-            attemptText.text = "Attempts: " + attemptCounter.ToString();
-            // add a attemt counter
         }
 
         if (collision.gameObject.CompareTag("Finish"))
@@ -66,7 +59,6 @@ public class WeightCollision : MonoBehaviour
         {
             Debug.Log("Resetting lives to 3");
             currentLives = 3;
-            attemptCounter++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
