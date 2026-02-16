@@ -16,6 +16,7 @@ public class WeightCollision : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        currentLives = 3;
         UpdateSprite();
     }
 
