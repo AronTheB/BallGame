@@ -9291,6 +9291,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 124137504593128449, guid: bd851e698f823dd449c26055acb29a7a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.23
+      objectReference: {fileID: 0}
     - target: {fileID: 1651124116304922843, guid: bd851e698f823dd449c26055acb29a7a, type: 3}
       propertyPath: m_Name
       value: Tutorial
@@ -9374,6 +9378,10 @@ PrefabInstance:
     - target: {fileID: 4270665369658632632, guid: bd851e698f823dd449c26055acb29a7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752043415649101677, guid: bd851e698f823dd449c26055acb29a7a, type: 3}
+      propertyPath: m_text
+      value: You only have 3 Lives, so watch out
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
