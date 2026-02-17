@@ -11,7 +11,7 @@ public class MouseAnchor : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
-        if (cam == null) cam = Object.FindFirstObjectByType<Camera>();
+        cam = Object.FindFirstObjectByType<Camera>();
         rb.gravityScale = 0;
     }
 
