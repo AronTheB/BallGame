@@ -51,6 +51,15 @@ public class WeightCollision : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Kill"))
+        {
+            LoseLife();
+            UpdateSprite();
+        }
+    }
+
     void LoseLife()
     {
         currentLives--;
