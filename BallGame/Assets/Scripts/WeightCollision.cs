@@ -13,6 +13,10 @@ public class WeightCollision : MonoBehaviour
     private SpriteRenderer sr;
     public bool isFinished = false;
 
+    public Animator anim;
+    public ParticleSystem ps;
+    public GameObject boss;
+
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -58,8 +62,8 @@ public class WeightCollision : MonoBehaviour
             LoseLife();
             UpdateSprite();
         }
+        
     }
-
     void LoseLife()
     {
         currentLives--;

@@ -6,6 +6,7 @@ public class BossTrigger : MonoBehaviour
     private TriggerManager manager;
     private bool hasTriggered = false;
     public Animator anim;
+    public float destroyDelay = 5f;
 
     void Start()
     {
@@ -21,4 +22,6 @@ public class BossTrigger : MonoBehaviour
             anim.SetTrigger("AttackTrigger"); 
         }
     }
+
+
 }
