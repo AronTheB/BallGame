@@ -2,25 +2,26 @@ using UnityEngine;
 
 public class KillTrigger : MonoBehaviour
 {
-    private TriggerManager manager;
     public Animator anim;
     public ParticleSystem ps;
+    public GameObject psObject;
     public GameObject boss;
+    public GameObject sword;
 
 
     void Start()
     {
-        manager = GetComponentInParent<TriggerManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Boss"))
+        if (other.CompareTag("Player"))
         {
             ps.Play();
+            sword.SetActive(false);
             anim.SetTrigger("DieTrigger"); 
             Destroy(boss, 1f);
+            Destroy(psObject, 1f);
         }
-        Destroy(gameObject);
     }
 }

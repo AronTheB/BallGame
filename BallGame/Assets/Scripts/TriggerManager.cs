@@ -3,7 +3,7 @@ using UnityEngine;
 public class TriggerManager : MonoBehaviour
 {
     public GameObject[] obstacles;
-    public float destroyDelay = 8f;
+    public float destroyDelay = 20f;
 
     public void TriggerActivated(int triggerID)
     {
